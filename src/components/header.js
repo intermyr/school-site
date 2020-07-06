@@ -1,5 +1,5 @@
-import React from "react";
-import useComponentVisible from '../hooks/useComponentVisible';
+import React from "react"
+import useComponentVisible from "../hooks/useComponentVisible"
 import InstagramIcon from "../icons/instagram-sketched.svg"
 import VkIcon from "../icons/Vk.com_icon-icons.com_55781.svg"
 import EyeIcon from "../icons/eye-svgrepo-com.svg"
@@ -25,7 +25,11 @@ const Header = () => {
       </div>
       <header className={styles.headerMain}>
         <Navbar>
-          <NavItem text="Новости" />
+          <li
+            className={styles.navItem}
+          >
+            <Link className={styles.textButton} to='/'>Новости</Link>
+          </li>
           <NavItem text="О школе" arrow>
             <Dropdown>
               <DropdownItem text="Основные сведения" />
@@ -80,7 +84,7 @@ const NavItem = ({ text, children, arrow }) => {
     <li
       ref={ref}
       className={styles.navItem}
-      onClick={() => setIsComponentVisible(true)}
+      onClick={() => setIsComponentVisible(!isComponentVisible)}
     >
       <a className={styles.textButton}>{text}</a>
       {isComponentVisible && children}

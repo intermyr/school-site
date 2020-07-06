@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Школа №24`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `МБОУ СОШ №24 г. Пятигорск`,
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -9,7 +9,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Roboto", "Droid Serif"],
+          families: ["Roboto", "Droid Serif", "Roboto Slab"],
         },
       },
     },
@@ -17,8 +17,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `news`,
+        path: `${__dirname}/src/pages/news`,
       },
     },
     {
@@ -29,6 +29,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

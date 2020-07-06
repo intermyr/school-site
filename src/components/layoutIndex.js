@@ -2,9 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import SideMenu from "./sidemenu"
 import Footer from "./footer"
-import styles from "../styles/layout.module.css"
+import styles from "../styles/layout-index.module.css"
 import "../styles/global.css"
 
 const Layout = ({ children }) => {
@@ -22,7 +21,6 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <main className={styles.container}>
-        <SideMenu />
         <div className={styles.contentColumn}>{children}</div>
       </main>
       <Footer />

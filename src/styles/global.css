@@ -1,4 +1,27 @@
+:root {
+  --bg: #ffffff;
+  --bg-accent: #ececec;
+  --nav-bg-color: #ececec;
+  --footer-bg-color: #ececec;
+
+  --content-font-size: 16px;
+  --nav-font-size: 18px;
+
+  --text-color: #0f0f0f;
+  --text-secondary-color: #9c9c9c;
+  --text-hover-color: #3d50ff;
+  --text-footer-color: #747474;
+
+  --nav-size: 54px;
+  --border: 1px solid #8d8d8d;
+  --border-radius: 2px;
+}
+
 * {
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
   padding: 0;
   border: 0;
@@ -6,9 +29,33 @@
   font: inherit;
   vertical-align: baseline;
   font-family: Roboto;
+  overflow-x: hidden;
+  overflow-y: overlay;
 }
 
 ul {
   list-style-type: none;
+  padding-left: 0px;
 }
 
+h1 {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: "Roboto Slab";
+}
+
+strong {
+  font-weight: 600;
+}
+
+p {
+  text-align: justify;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}

@@ -1,0 +1,15 @@
+.footer-container {
+    background-color: var(--footer-bg-color);
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-text{
+    font-family: "Roboto";
+    color: var(--text-footer-color);
+    font-size: medium;
+    font-weight: 500;
+}
