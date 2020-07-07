@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: intermyr/school-site
   branch: master
 
 locale: 'ru'
@@ -9,7 +9,7 @@ public_folder: /img
 
 collections:
   - name: 'news'
-    label: 'News'
+    label: 'Новости'
     folder: 'content/news'
     create: true
     slug: 'index'
