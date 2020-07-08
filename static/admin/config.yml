@@ -1,5 +1,5 @@
 backend:
-  name: intermyr/school-site
+  name: git-gateway
   branch: master
 
 locale: 'ru'
