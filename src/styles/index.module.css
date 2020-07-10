@@ -1,4 +1,11 @@
 .date {
-    color: var(--text-secondary-color);
-    font-weight: 500;
+  color: var(--text-secondary-color);
+  font-weight: 500;
+  display: inline-block;
+}
+
+@media (max-width: 375px) {
+  .excerpt {
+    display: none;
+  }
 }

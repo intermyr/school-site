@@ -1,7 +1,7 @@
 .column {
+  grid-column: 1 / span 1;
   padding-top: 2rem;
   padding-right: 2rem;
-  grid-column: 1 / span 1;
 }
 
 .container {
@@ -18,7 +18,7 @@
   background-color: var(--nav-bg-color);
   margin-top: 3px;
   height: 40px;
-  width: 225px;
+  width: 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,4 +35,20 @@
   border-style: solid;
   border-width: 7px 3.5px 0 3.5px;
   border-color: #868d96 transparent transparent transparent;
+}
+
+
+@media (max-width: 1220px) {
+  .column {
+    grid-column: 1 / span 3;
+    grid-row: 3;
+    padding: 2rem 2rem;
+  }
+
+  .container {
+    position: static;
+    top:unset;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

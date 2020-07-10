@@ -2,10 +2,18 @@
   display: grid;
   grid-template-columns: 3fr;
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 .content-column {
   padding: 2rem 0;
   grid-column: 2/2;
 }
+
+@media (max-width: 930px) {
+  .content-column {
+    padding: 2rem 2rem;
+  }
+}
+
+

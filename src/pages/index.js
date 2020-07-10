@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
               <h3>
                 {node.frontmatter.title} <span className={styles.date}>— {node.frontmatter.date}</span>
               </h3>
-              <p>{node.excerpt}</p>
+              <p className={styles.excerpt}>{node.excerpt}</p>
             </Link>
           </div>
         ))}
