@@ -7,7 +7,7 @@ import SearchIcon from "../icons/search.svg"
 import styles from "../styles/header.module.css"
 import { Link } from "gatsby"
 
-const BurgerNav = () => {
+const BurgerNav = ({data}) => {
   const [isOpen, setOpen] = useState(false)
 
   return (
@@ -27,27 +27,86 @@ const BurgerNav = () => {
           </li>
           <BurgerMenuItem text="Сведения" arrow>
             <BurgerSubMenu>
-              <BurgerSubMenuItem text="Сведения" />
-              <BurgerSubMenuItem text="Сведения" />
-              <BurgerSubMenuItem text="Сведения" />
-              <BurgerSubMenuItem text="Сведения" />
-              <BurgerSubMenuItem text="Сведения" />
-              <BurgerSubMenuItem text="Сведения" />
-              <BurgerSubMenuItem text="Сведения" />
-              <BurgerSubMenuItem text="Сведения" />
+              {data.allMarkdownRemark.edges.map(({ node }) => {
+                if (node.frontmatter.menu === "info") {
+                  return (
+                    <BurgerSubMenuItem
+                      key={node.id}
+                      slug={node.fields.slug}
+                      text={node.frontmatter.title}
+                    />
+                  )
+                }
+              })}
             </BurgerSubMenu>
           </BurgerMenuItem>
-          <BurgerMenuItem text="Родителям" arrow />
-          <BurgerMenuItem text="Ученикам" arrow />
-          <BurgerMenuItem text="Учителям" arrow />
-          <BurgerMenuItem text="Образование" arrow />
+          <BurgerMenuItem text="Родителям" arrow>
+          <BurgerSubMenu>
+              {data.allMarkdownRemark.edges.map(({ node }) => {
+                if (node.frontmatter.menu === "parents") {
+                  return (
+                    <BurgerSubMenuItem
+                      key={node.id}
+                      slug={node.fields.slug}
+                      text={node.frontmatter.title}
+                    />
+                  )
+                }
+              })}
+            </BurgerSubMenu>
+          </BurgerMenuItem>
+          <BurgerMenuItem text="Ученикам" arrow>
+          <BurgerSubMenu>
+              {data.allMarkdownRemark.edges.map(({ node }) => {
+                if (node.frontmatter.menu === "students") {
+                  return (
+                    <BurgerSubMenuItem
+                      key={node.id}
+                      slug={node.fields.slug}
+                      text={node.frontmatter.title}
+                    />
+                  )
+                }
+              })}
+            </BurgerSubMenu>
+          </BurgerMenuItem>
+          <BurgerMenuItem text="Учителям" arrow>
+          <BurgerSubMenu>
+              {data.allMarkdownRemark.edges.map(({ node }) => {
+                if (node.frontmatter.menu === "teachers") {
+                  return (
+                    <BurgerSubMenuItem
+                      key={node.id}
+                      slug={node.fields.slug}
+                      text={node.frontmatter.title}
+                    />
+                  )
+                }
+              })}
+            </BurgerSubMenu>
+          </BurgerMenuItem>
+          <BurgerMenuItem text="Образование" arrow>
+          <BurgerSubMenu>
+              {data.allMarkdownRemark.edges.map(({ node }) => {
+                if (node.frontmatter.menu === "education") {
+                  return (
+                    <BurgerSubMenuItem
+                      key={node.id}
+                      slug={node.fields.slug}
+                      text={node.frontmatter.title}
+                    />
+                  )
+                }
+              })}
+            </BurgerSubMenu>
+          </BurgerMenuItem>
         </BurgerMenu>
       )}
     </>
   )
 }
 
-const BurgerButton = ({ children, arrow, text, onClick }) => {
+const BurgerButton = ({ onClick }) => {
   return (
     <a className={styles.burgerButton} onClick={onClick}>
       <BurgerIcon />
@@ -87,8 +146,12 @@ const BurgerSubMenu = ({ children }) => {
   return <div className={styles.burgerSubMenu}>{children}</div>
 }
 
-const BurgerSubMenuItem = ({ text }) => {
-  return <Link className={styles.burgerSubMenuItem}>{text}</Link>
+const BurgerSubMenuItem = ({ text, slug }) => {
+  return (
+    <Link className={styles.burgerSubMenuItem} to={slug}>
+      {text}
+    </Link>
+  )
 }
 
 export default BurgerNav

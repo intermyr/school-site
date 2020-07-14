@@ -7,7 +7,7 @@ import { Link } from "gatsby"
 
 import styles from "../styles/header.module.css"
 
-const Navbar = () => {
+const Navbar = ({ data }) => {
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navbarNav}>
@@ -18,21 +18,79 @@ const Navbar = () => {
         </li>
         <NavItem text="Сведения" arrow>
           <Dropdown>
-            <DropdownItem text="Основные сведения" />
-            <DropdownItem text="Основные сведения" />
-            <DropdownItem text="Основные сведения" />
-            <DropdownItem text="Основные сведения" />
-            <DropdownItem text="Основные сведения" />
-            <DropdownItem text="Основные сведения" />
-            <DropdownItem text="Основные сведения" />
-            <DropdownItem text="Основные сведения" />
-            <DropdownItem text="Основные сведения" />
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              if (node.frontmatter.menu === "info") {
+                return (
+                  <DropdownItem
+                    key={node.id}
+                    slug={node.fields.slug}
+                    text={node.frontmatter.title}
+                  />
+                )
+              }
+            })}
           </Dropdown>
         </NavItem>
-        <NavItem text="Родителям" arrow />
-        <NavItem text="Ученикам" arrow />
-        <NavItem text="Учителям" arrow />
-        <NavItem text="Образование" arrow />
+        <NavItem text="Родителям" arrow>
+          <Dropdown>
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              if (node.frontmatter.menu === "parents") {
+                return (
+                  <DropdownItem
+                    key={node.id}
+                    slug={node.fields.slug}
+                    text={node.frontmatter.title}
+                  />
+                )
+              }
+            })}
+          </Dropdown>
+        </NavItem>
+        <NavItem text="Ученикам" arrow>
+          <Dropdown>
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              if (node.frontmatter.menu === "students") {
+                return (
+                  <DropdownItem
+                    key={node.id}
+                    slug={node.fields.slug}
+                    text={node.frontmatter.title}
+                  />
+                )
+              }
+            })}
+          </Dropdown>
+        </NavItem>
+        <NavItem text="Учителям" arrow>
+          <Dropdown>
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              if (node.frontmatter.menu === "teachers") {
+                return (
+                  <DropdownItem
+                    key={node.id}
+                    slug={node.fields.slug}
+                    text={node.frontmatter.title}
+                  />
+                )
+              }
+            })}
+          </Dropdown>
+        </NavItem>
+        <NavItem text="Образование" arrow>
+          <Dropdown>
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              if (node.frontmatter.menu === "education") {
+                return (
+                  <DropdownItem
+                    key={node.id}
+                    slug={node.fields.slug}
+                    text={node.frontmatter.title}
+                  />
+                )
+              }
+            })}
+          </Dropdown>
+        </NavItem>
         <li className={styles.navItem}>
           <a className={styles.searchIcon}>
             <SearchIcon />
@@ -63,7 +121,8 @@ const NavItem = ({ text, children, arrow }) => {
       onClick={() => setIsComponentVisible(!isComponentVisible)}
     >
       <a className={styles.textButton}>
-        {text}<span>{drawArrow(arrow)}</span>
+        {text}
+        <span>{drawArrow(arrow)}</span>
       </a>
       {isComponentVisible && children}
     </li>
@@ -74,8 +133,12 @@ const Dropdown = ({ children }) => {
   return <div className={styles.dropdown}>{children}</div>
 }
 
-const DropdownItem = ({ text }) => {
-  return <Link className={styles.dropdownItem}>{text}</Link>
+const DropdownItem = ({ text, slug }) => {
+  return (
+    <Link className={styles.dropdownItem} to={slug}>
+      {text}
+    </Link>
+  )
 }
 
 export default Navbar
