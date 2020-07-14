@@ -10,17 +10,23 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Новости" />
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link to={node.fields.slug}>
-            <h3>
-              {node.frontmatter.title}
-              <span className={styles.date}>— {node.frontmatter.date}</span>
-            </h3>
-            <p className={styles.description}>{node.frontmatter.description}</p>
-          </Link>
-        </div>
-      ))}
+      {data.allMarkdownRemark.edges.map(({ node }) => {
+        if (node.frontmatter.menu === "news") {
+          return (
+            <div key={node.id}>
+              <Link to={node.fields.slug}>
+                <h3>
+                  {node.frontmatter.title}
+                  <span className={styles.date}>— {node.frontmatter.date}</span>
+                </h3>
+                <p className={styles.description}>
+                  {node.frontmatter.description}
+                </p>
+              </Link>
+            </div>
+          )
+        }
+      })}
     </Layout>
   )
 }
@@ -36,6 +42,7 @@ export const query = graphql`
             title
             date(formatString: "DD MMMM, YYYY", locale: "ru")
             description
+            menu
           }
           fields {
             slug
