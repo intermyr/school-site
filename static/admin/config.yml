@@ -32,6 +32,7 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Меню', name: 'menu', widget: 'string', default: 'info' }
       - { label: 'Описание', name: 'description', widget: 'string', required: false }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
       
@@ -45,6 +46,7 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Меню', name: 'menu', widget: 'string', default: 'students' }
       - { label: 'Описание', name: 'description', widget: 'string', required: false }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
 
@@ -58,6 +60,7 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Меню', name: 'menu', widget: 'string', default: 'parents' }
       - { label: 'Описание', name: 'description', widget: 'string', required: false }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
 
@@ -71,6 +74,7 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Меню', name: 'menu', widget: 'string', default: 'teachers' }
       - { label: 'Описание', name: 'description', widget: 'string', required: false }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
 
@@ -84,6 +88,7 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Меню', name: 'menu', widget: 'string', default: 'education' }
       - { label: 'Описание', name: 'description', widget: 'string', required: false }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
 
@@ -97,5 +102,6 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Меню', name: 'menu', widget: 'string', default: 'sidemenu' }
       - { label: 'Описание', name: 'description', widget: 'string', required: false }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
