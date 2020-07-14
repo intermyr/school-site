@@ -4,22 +4,23 @@ import { Link } from "gatsby"
 import Layout from "../components/layoutIndex"
 import SEO from "../components/seo"
 
-import styles from '../styles/index.module.css'
+import styles from "../styles/index.module.css"
 
 const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Новости" />
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
-            <Link to={node.fields.slug}>
-              <h3>
-                {node.frontmatter.title} <span className={styles.date}>— {node.frontmatter.date}</span>
-              </h3>
-              <p className={styles.excerpt}>{node.excerpt}</p>
-            </Link>
-          </div>
-        ))}
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <Link to={node.fields.slug}>
+            <h3>
+              {node.frontmatter.title}
+              <span className={styles.date}>— {node.frontmatter.date}</span>
+            </h3>
+            <p className={styles.description}>{node.frontmatter.description}</p>
+          </Link>
+        </div>
+      ))}
     </Layout>
   )
 }
@@ -34,11 +35,11 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY", locale: "ru")
+            description
           }
           fields {
             slug
           }
-          excerpt(pruneLength: 400)
         }
       }
     }
