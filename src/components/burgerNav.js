@@ -25,7 +25,7 @@ const BurgerNav = () => {
               Новости
             </Link>
           </li>
-          <BurgerMenuItem text="О школе" arrow>
+          <BurgerMenuItem text="Сведения" arrow>
             <BurgerSubMenu>
               <BurgerSubMenuItem text="Сведения" />
               <BurgerSubMenuItem text="Сведения" />

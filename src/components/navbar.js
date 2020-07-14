@@ -16,7 +16,7 @@ const Navbar = () => {
             Новости
           </Link>
         </li>
-        <NavItem text="О школе" arrow>
+        <NavItem text="Сведения" arrow>
           <Dropdown>
             <DropdownItem text="Основные сведения" />
             <DropdownItem text="Основные сведения" />
