@@ -36,7 +36,6 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
-      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
       - { label: 'Описание', name: 'description', widget: 'string' }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
       
@@ -52,7 +51,6 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
-      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
       - { label: 'Описание', name: 'description', widget: 'string' }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
 
@@ -68,7 +66,6 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
-      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
       - { label: 'Описание', name: 'description', widget: 'string' }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
 
@@ -84,7 +81,6 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
-      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
       - { label: 'Описание', name: 'description', widget: 'string' }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
 
@@ -100,7 +96,6 @@ collections:
       preview: true
     fields:
       - { label: 'Заголовок', name: 'title', widget: 'string' }
-      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
       - { label: 'Описание', name: 'description', widget: 'string' }
       - { label: 'Содержание', name: 'body', widget: 'markdown' }
 
