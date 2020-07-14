@@ -4,7 +4,7 @@ import Layout from './../components/layout';
 
 
 const newsTemplate = ({ data}) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
