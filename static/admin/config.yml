@@ -17,9 +17,105 @@ collections:
     public_folder: ''
     path: '{{title}}/index'
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
+      - { label: 'Описание', name: 'description', widget: 'string' }
+      - { label: 'Содержание', name: 'body', widget: 'markdown' }
+
+  - name: 'info'
+    label: 'Сведения'
+    folder: 'content/info'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
+      - { label: 'Описание', name: 'description', widget: 'string' }
+      - { label: 'Содержание', name: 'body', widget: 'markdown' }
+      
+  - name: 'students'
+    label: 'Ученикам'
+    folder: 'content/students'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
+      - { label: 'Описание', name: 'description', widget: 'string' }
+      - { label: 'Содержание', name: 'body', widget: 'markdown' }
+
+  - name: 'parents'
+    label: 'Родителям'
+    folder: 'content/parents'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
+      - { label: 'Описание', name: 'description', widget: 'string' }
+      - { label: 'Содержание', name: 'body', widget: 'markdown' }
+
+  - name: 'teachers'
+    label: 'Учителям'
+    folder: 'content/teachers'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
+      - { label: 'Описание', name: 'description', widget: 'string' }
+      - { label: 'Содержание', name: 'body', widget: 'markdown' }
+
+  - name: 'education'
+    label: 'Образование'
+    folder: 'content/education'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
+      - { label: 'Описание', name: 'description', widget: 'string' }
+      - { label: 'Содержание', name: 'body', widget: 'markdown' }
+
+  - name: 'sidemenu'
+    label: 'Боковое меню'
+    folder: 'content/sidemenu'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Заголовок', name: 'title', widget: 'string' }
+      - { label: 'Дата публикации', name: 'date', widget: 'datetime' }
+      - { label: 'Описание', name: 'description', widget: 'string' }
+      - { label: 'Содержание', name: 'body', widget: 'markdown' }
