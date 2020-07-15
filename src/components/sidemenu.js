@@ -1,21 +1,28 @@
 import React from "react"
 import styles from "../styles/sidemenu.module.css"
+import { Link } from "gatsby"
 
-const SideMenu = () => {
+const SideMenu = ({data}) => {
   return (
     <div className={styles.column}>
       <ul className={styles.container}>
-        <SideMenuItem text="О школе" arrow />
-        <SideMenuItem text="Родителям" arrow />
-        <SideMenuItem text="Ученикам" arrow />
-        <SideMenuItem text="Учителям" arrow />
-        <SideMenuItem text="Образование" arrow />
+        {data.allMarkdownRemark.edges.map(({ node }) => {
+          if (node.frontmatter.menu === "sidemenu") {
+            return (
+              <SideMenuItem
+                key={node.id}
+                slug={node.fields.slug}
+                text={node.frontmatter.title}
+              />
+            )
+          }
+        })}
       </ul>
     </div>
   )
 }
 
-const SideMenuItem = ({ text, arrow }) => {
+const SideMenuItem = ({ text, arrow, slug }) => {
   const drawArrow = arrow => {
     if (arrow) {
       return <div className={styles.arrow}></div>
@@ -23,8 +30,8 @@ const SideMenuItem = ({ text, arrow }) => {
   }
   return (
     <li className={styles.sideMenuItem}>
-      <a className={styles.textButton}>{text}</a>
       {drawArrow(arrow)}
+      <Link className={styles.textButton} to={slug}>{text}</Link>
     </li>
   )
 }

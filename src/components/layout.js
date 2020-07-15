@@ -8,21 +8,41 @@ import styles from "../styles/layout.module.css"
 import "../styles/global.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
+  
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+          totalCount
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                date(formatString: "DD MMMM, YYYY", locale: "ru")
+                description
+                menu
+              }
+              fields {
+                slug
+              }
+            }
+          }
+        }
+        site {
+          siteMetadata {
+            title
+          }
         }
       }
-    }
-  `)
+    `
+  )
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={data.site.siteMetadata.title} data={data} />
       <main className={styles.container}>
-        <SideMenu />
+        <SideMenu data={data} />
         <div className={styles.contentColumn}>{children}</div>
       </main>
       <Footer />

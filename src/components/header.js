@@ -8,32 +8,8 @@ import VkIcon from "../icons/Vk.com_icon-icons.com_55781.svg"
 import EyeIcon from "../icons/eye-svgrepo-com.svg"
 
 import styles from "../styles/header.module.css"
-import { useStaticQuery } from "gatsby"
-
-const Header = () => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-          totalCount
-          edges {
-            node {
-              id
-              frontmatter {
-                title
-                date(formatString: "DD MMMM, YYYY", locale: "ru")
-                description
-                menu
-              }
-              fields {
-                slug
-              }
-            }
-          }
-        }
-      }
-    `
-  )
+const Header = ({data}) => {
+  
   const lessThan720 = useMediaPredicate("(max-width: 720px)")
   return (
     <>
