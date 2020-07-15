@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -32,7 +32,7 @@
   display: flex;
   justify-content: space-between;
   padding-left: 0px;
-  width: 1195px;
+  width: 995px;
 }
 
 .nav-item {

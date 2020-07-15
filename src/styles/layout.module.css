@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: auto 3fr;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1000px;
   padding-bottom: 54px;
   min-height: 100vh;
 }
