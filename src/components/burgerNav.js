@@ -2,12 +2,13 @@ import React, { useState } from "react"
 import useComponentVisible from "./../hooks/useComponentVisible"
 
 import BurgerIcon from "../icons/open-menu.svg"
+import CloseIcon from "../icons/close.svg"
 import SearchIcon from "../icons/search.svg"
 
 import styles from "../styles/header.module.css"
 import { Link } from "gatsby"
 
-const BurgerNav = ({data}) => {
+const BurgerNav = ({ data }) => {
   const [isOpen, setOpen] = useState(false)
 
   return (
@@ -16,7 +17,7 @@ const BurgerNav = ({data}) => {
         <a className={styles.searchIcon}>
           <SearchIcon />
         </a>
-        <BurgerButton onClick={() => setOpen(!isOpen)} />
+        <BurgerButton onClick={() => setOpen(!isOpen)} isOpen={isOpen} />
       </nav>
       {isOpen && (
         <BurgerMenu>
@@ -41,7 +42,7 @@ const BurgerNav = ({data}) => {
             </BurgerSubMenu>
           </BurgerMenuItem>
           <BurgerMenuItem text="Родителям" arrow>
-          <BurgerSubMenu>
+            <BurgerSubMenu>
               {data.allMarkdownRemark.edges.map(({ node }) => {
                 if (node.frontmatter.menu === "parents") {
                   return (
@@ -56,7 +57,7 @@ const BurgerNav = ({data}) => {
             </BurgerSubMenu>
           </BurgerMenuItem>
           <BurgerMenuItem text="Ученикам" arrow>
-          <BurgerSubMenu>
+            <BurgerSubMenu>
               {data.allMarkdownRemark.edges.map(({ node }) => {
                 if (node.frontmatter.menu === "students") {
                   return (
@@ -71,7 +72,7 @@ const BurgerNav = ({data}) => {
             </BurgerSubMenu>
           </BurgerMenuItem>
           <BurgerMenuItem text="Учителям" arrow>
-          <BurgerSubMenu>
+            <BurgerSubMenu>
               {data.allMarkdownRemark.edges.map(({ node }) => {
                 if (node.frontmatter.menu === "teachers") {
                   return (
@@ -86,7 +87,7 @@ const BurgerNav = ({data}) => {
             </BurgerSubMenu>
           </BurgerMenuItem>
           <BurgerMenuItem text="Образование" arrow>
-          <BurgerSubMenu>
+            <BurgerSubMenu>
               {data.allMarkdownRemark.edges.map(({ node }) => {
                 if (node.frontmatter.menu === "education") {
                   return (
@@ -106,10 +107,10 @@ const BurgerNav = ({data}) => {
   )
 }
 
-const BurgerButton = ({ onClick }) => {
+const BurgerButton = ({ onClick, isOpen }) => {
   return (
     <a className={styles.burgerButton} onClick={onClick}>
-      <BurgerIcon />
+      {isOpen ? <CloseIcon /> : <BurgerIcon />}
     </a>
   )
 }
@@ -127,23 +128,17 @@ const BurgerMenuItem = ({ text, children }) => {
     ref,
     isComponentVisible,
     setIsComponentVisible,
-  } = useComponentVisible(false)
+  } = useComponentVisible(true)
   return (
-    <>
-      <li
-        ref={ref}
-        onClick={() => setIsComponentVisible(!isComponentVisible)}
-        className={styles.burgerMenuItem}
-      >
-        <a className={styles.textButton}>{text}</a>
-      </li>
-      {isComponentVisible && children}
-    </>
+    <li ref={ref} className={styles.burgerMenuItem}>
+      <a className={styles.textButton}>{text}</a>
+        {children}
+    </li>
   )
 }
 
 const BurgerSubMenu = ({ children }) => {
-  return <div className={styles.burgerSubMenu}>{children}</div>
+  return <ul className={styles.burgerSubMenu}>{children}</ul>
 }
 
 const BurgerSubMenuItem = ({ text, slug }) => {

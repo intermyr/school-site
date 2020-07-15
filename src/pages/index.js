@@ -14,9 +14,9 @@ const IndexPage = ({ data }) => {
         if (node.frontmatter.menu === "news") {
           return (
             <div key={node.id}>
-              <Link to={node.fields.slug}>
+              <Link to={node.fields.slug} className={styles.link}>
                 <h3>
-                  {node.frontmatter.title}
+                  {node.frontmatter.title + " "}
                   <span className={styles.date}>— {node.frontmatter.date}</span>
                 </h3>
                 <p className={styles.description}>

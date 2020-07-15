@@ -5,6 +5,7 @@
 }
 
 .container {
+  padding-inline-start: 0;
   position: sticky;
   top: 80px;
   display: flex;

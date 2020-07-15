@@ -33,14 +33,10 @@ body {
   overflow-y: overlay;
 }
 
-ul {
+/* ul {
   list-style-type: none;
   padding-left: 0px;
-}
-
-ol{
-  list-style-type: lower-latin;
-}
+} */
 
 h1 {
   margin-block-start: 0;
@@ -62,11 +58,12 @@ a {
   white-space: normal;
 }
 
-.table-wrapper{
+.table-wrapper {
   overflow-x: scroll;
 }
 
-th, td {
+th,
+td {
   border: 1px solid darkgrey;
 }
 
@@ -78,4 +75,15 @@ th {
   height: 50px;
 }
 
-ul,ol,dl{margin:0 auto; padding:0}
+hr {
+  border-style: inset;
+  border-width: 0px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.12) 35%,
+    rgba(0, 0, 0, 0.05) 90%,
+    transparent 100%
+  );
+}
