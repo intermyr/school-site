@@ -17,6 +17,11 @@ const SideMenu = ({data}) => {
             )
           }
         })}
+         <SideMenuItem
+                key='1'
+                slug='/'
+                text="test"
+              />
       </ul>
     </div>
   )
