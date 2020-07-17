@@ -47,7 +47,7 @@ CMS.registerEditorComponent({
     { name: "file", label: "Выберите документ", widget: "file" },
   ],
   // Pattern to identify a block as being an instance of this component
-  pattern: /^\[(\S+)\]\((\S+)\)$/,
+  pattern: /\[(\S+)\]\((\/img\/\S+)\)/,
   // Function to extract data elements from the regexp match
   fromBlock: function (match) {
     return {
@@ -62,6 +62,6 @@ CMS.registerEditorComponent({
   // Preview output for this component. Can either be a string or a React component
   // (component gives better render performance)
   toPreview: function (obj) {
-    return `<a href="${obj.file}">${obj.title}</a>`
+    return <a href="${obj.file}">${obj.title}</a>
   },
 })
