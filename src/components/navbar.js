@@ -118,7 +118,8 @@ const NavItem = ({ text, children, arrow }) => {
     <li
       ref={ref}
       className={styles.navItem}
-      onClick={() => setIsComponentVisible(!isComponentVisible)}
+      onMouseOver={() => setIsComponentVisible(true)}
+      onMouseLeave={() => setIsComponentVisible(false)}
     >
       <a className={styles.textButton}>
         {text}
