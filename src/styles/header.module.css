@@ -30,12 +30,14 @@
 
 .navbar-nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding-left: 0px;
   width: 1195px;
 }
 
 .nav-item {
+  height: var(--nav-size);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -116,24 +118,27 @@
 /* Dropdown */
 
 .dropdown {
-  max-width: 300px;
+  max-width: max-content;
   display: flex;
   flex-direction: column;
   position: absolute;
   top: var(--nav-size);
-  background-color: #f2f2f2;
+  transform: translateX(30%);
+  background-color: var(--nav-bg-color);
   overflow: hidden;
   transition: height var(--speed) ease;
+  border-radius: var(--border-radius);
+  border: 1px solid #cecece;
 }
 
 .dropdown-item {
-  margin: 0.7rem 0.7rem;
+  margin: 0.7rem 1rem;
   cursor: pointer;
   font-size: var(--nav-font-size);
   color: var(--text-color);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .dropdown-item:hover {

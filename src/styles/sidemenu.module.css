@@ -17,7 +17,7 @@
 .side-menu-item {
   cursor: pointer;
   border-radius: var(--border-radius);
-  background-color: var(--nav-bg-color);
+  background-color: var(--nav-bg-color-secondary);
   margin-top: 3px;
   height: 40px;
   width: 200px;
@@ -43,7 +43,7 @@
 @media (max-width: 1220px) {
   .column {
     grid-column: 1 / span 3;
-    grid-row: 3;
+    grid-row: 2;
     padding: 2rem 2rem;
   }
 
